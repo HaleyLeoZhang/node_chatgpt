@@ -23,7 +23,7 @@ services:
       default:
         ipv4_address: 172.44.2.11
     # 生产开启这个
-    command: bash -c "bash /usr/src/ini.sh && tail -f "
+    command: bash -c "bash /usr/src/ini.sh "
 #    command: bash -c "/usr/local/bin/node /app/dist/www --conf='/app/app.yaml'"
     # 部署资源限制
     deploy:

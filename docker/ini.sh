@@ -6,7 +6,7 @@
 cd /app \
 && make install_prod \
 && make build \
-&& node ./dist/www --conf="./app.yaml"
+&& /usr/local/bin/node ./dist/www --conf="./app.yaml"
 #&& /usr/bin/supervisord
 
 #for((;;))
@@ -22,4 +22,5 @@ cd /app \
 
 
 # 挂起容器实例
+echo "结束，开始挂起容器"
 tail -f 

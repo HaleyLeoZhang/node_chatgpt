@@ -6,7 +6,9 @@
 // -----------------------------------------------
 
 // 原装文档 https://github.com/winstonjs/winston
+// 日期插件 文档地址 https://github.com/winstonjs/winston-daily-rotate-file
 import *  as  winston from 'winston';
+import 'winston-daily-rotate-file';
 import General from "./General";
 
 
