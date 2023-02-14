@@ -50,10 +50,12 @@ Listening node HTTP server Port on  4040
 简略说明  
 `GET参数` 中 `client_name` 是必填的入参，随便填点内容都行    
 
-#### 翻译接口
+### 翻译接口
+
+##### 入参
 
 `zh` 是想翻译的中文文本  
-`option` 
+`option` 枚举值  `en` 英文 `arabic` 阿拉伯语  
 
 ```
 curl --location --request POST '127.0.0.1:3995/translate/zh?client_name=mlf' \
@@ -63,3 +65,28 @@ curl --location --request POST '127.0.0.1:3995/translate/zh?client_name=mlf' \
     "option": "arabic"
 }'
 ```
+
+##### 出参
+
+`data.text` 就是翻译结果
+
+
+
+### 常规一问一答接口
+
+##### 入参
+
+`text` 是想文的内容
+
+```
+curl --location --request POST '127.0.0.1:3995/translate/general?client_name=mlf' \
+--header 'Content-Type: application/json' \
+--data-raw '{
+    "text":"你知道未来中国哪个行业赚钱吗"
+}'
+```
+
+##### 出参
+
+`data.text` 就是回答内容
+
