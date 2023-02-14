@@ -22,4 +22,12 @@ export default class TranslateLogic extends Base {
         }
         return text
     }
+
+    /**
+     * 正常回应，不记录上下文
+     * @return Promise text 英文内容
+     */
+    static async general(ctx, text) {
+        return await ChatgptService.general(ctx, text)
+    }
 }
