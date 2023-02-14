@@ -22,7 +22,7 @@ const app = new Koa.default()
 Conf.load_config(process.argv)
 
 // 路由注册 ---- START
-app_router.post('/supplier/save_supplier_list_by_comic_id', Translate.handle) // 因为请求体可能是很大一章节文字，所以用 POST 请求比较合适
+app_router.post('/translate/zh', Translate.handle) // 因为请求体可能是很大一章节文字，所以用 POST 请求比较合适
 
 // 路由注册 ---- END
 
