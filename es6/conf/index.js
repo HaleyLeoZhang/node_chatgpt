@@ -17,6 +17,7 @@ import Log from "../tools/Log";
 
 // 初始化配置
 let BROWSER = {}, // 浏览器配置
+    AI = {}, // OepnAI 官方的一些配置
     LOG_CONFIG = {}, // 日志配置
     SENTRY_DSN = "", // Sentry 异常采集 - 更多请访问 https://sentry.io/
     HTTP_PORT = 4040, // HTTP 服务端口
@@ -37,6 +38,11 @@ export default class Conf {
         LOG_CONFIG = {
             debug: doc.log.debug,
             path: doc.log.path,
+        }
+        AI = {
+            open_ai_api_key: doc.ai.open_ai_api_key,
+            timeout_second: doc.ai.timeout_second,
+            debug: doc.ai.debug,
         }
         HTTP_PORT = doc.http_port
         PROXY_DSN = doc.proxy_dsn
@@ -81,6 +87,7 @@ export default class Conf {
 
 export {
     APP_PATH,
+    AI,
     BROWSER,
     SENTRY_DSN,
     HTTP_PORT,

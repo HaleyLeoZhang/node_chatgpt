@@ -17,6 +17,6 @@ const app = new Register()
 app.bootstrap()
     // 注册模块，调用的模块方法，都得是 async
     // 调用示例
-    //      babel-node ./es6/app.js debug translate --conf="./app.yaml"
-    .use('debug', DebugTaskTest)
+    //      babel-node ./es6/app.js debug_task translate --conf="./app.yaml"
+    .use('debug_task', DebugTaskTest)
     .run()

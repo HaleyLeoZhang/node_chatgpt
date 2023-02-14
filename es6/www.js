@@ -10,7 +10,7 @@ import * as KoaCors from 'koa2-cors'
 import * as BodyParser from 'koa-bodyparser'
 import * as RouterTool from 'koa-router'
 import Translate from "./controller/translate";
-import Supplier from "./controller/supplier.js.bak";
+import Supplier from "./controller/supplier";
 import Conf, {HTTP_PORT} from "./conf";
 
 const app_router = RouterTool.default()
