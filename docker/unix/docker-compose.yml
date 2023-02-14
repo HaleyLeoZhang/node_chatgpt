@@ -12,7 +12,7 @@ services:
       - ../ini.sh:/usr/src/ini.sh:cached
       - /tmp/node_chatgpt:/tmp/node_chatgpt:cached
     ports:
-      - 7070:4040
+      - 3995:4040
     environment:
       TZ: Asia/Shanghai
       NODE_ENV: production
