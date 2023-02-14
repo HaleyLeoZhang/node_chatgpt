@@ -9,39 +9,39 @@ ai:
   # 获取 key 的地址，谷歌账号直接上 https://platform.openai.com/account/api-keys
   open_ai_api_key: "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"
   timeout_second: 10 # 会话超时秒数
-  debug: true # 是否调试会话，枚举值 true 调试  false 不调试
-
-
-# DB配置
-db_comic: # 模块专属 中间件
-  write: # 主库列表
-    - host: '127.0.0.1'
-      port: 3306
-      user: 'root'
-      password: ''
-      database: 'chatgpt_avatar'
-      connection_limit: 5 # 连接池配置:维持链接数,理论上10个应该够了
-  read: # 从库列表
-    - host: '127.0.0.1'
-      port: 3306
-      user: 'root'
-      password: ''
-      database: 'chatgpt_avatar'
-      connection_limit: 5 # 连接池配置:维持链接数,理论上10个应该够了
-  show_sql: false # 是否打印SQL false 关闭 true 打开
-
-# RabbitMq 配置
-rabbit_mq: # 通用中间件
-  host: '192.168.0.5'
-  port: 5672
-  user: ''
-  password: ''
-  vhost: '/'
+  debug: false # 是否调试会话，枚举值 true 调试  false 不调试
 
 # 日志配置
 log:
-  debug: true # true 输出日志到控制台; false 不输出日志到控制台
-  path: '' # 日志存放位置：不填,则不写日志文件 ; 填写，如 /tmp/comic_log, 则自动写入到 /tmp 目录下 以 comic_log 开头的文件
+  debug: false # true 输出日志到控制台; false 不输出日志到控制台
+  path: '/tmp/node_chatgpt' # 日志存放位置：不填,则不写日志文件 ; 填写，如 /tmp/node_chatgpt, 则自动写入到 /tmp 目录下 以 node_chatgpt 开头的文件
 
 # Sentry 异常采集  更多请访问 https://sentry.io/
 sentry_dsn: '' # 异常上报地址
+
+## DB配置
+#db_comic: # 模块专属 中间件
+#  write: # 主库列表
+#    - host: '127.0.0.1'
+#      port: 3306
+#      user: 'root'
+#      password: ''
+#      database: 'chatgpt_avatar'
+#      connection_limit: 5 # 连接池配置:维持链接数,理论上10个应该够了
+#  read: # 从库列表
+#    - host: '127.0.0.1'
+#      port: 3306
+#      user: 'root'
+#      password: ''
+#      database: 'chatgpt_avatar'
+#      connection_limit: 5 # 连接池配置:维持链接数,理论上10个应该够了
+#  show_sql: false # 是否打印SQL false 关闭 true 打开
+#
+## RabbitMq 配置
+#rabbit_mq: # 通用中间件
+#  host: '192.168.0.5'
+#  port: 5672
+#  user: ''
+#  password: ''
+#  vhost: '/'
+
