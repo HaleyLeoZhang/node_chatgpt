@@ -50,6 +50,8 @@ Listening node HTTP server Port on  4040
 简略说明  
 `GET参数` 中 `client_name` 是必填的入参，随便填点内容都行    
 
+注：目前接口都是 `10秒` 超时  
+
 ### 翻译接口
 
 ##### 入参
