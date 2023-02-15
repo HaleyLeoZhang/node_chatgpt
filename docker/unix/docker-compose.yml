@@ -21,7 +21,7 @@ services:
 
     networks:
       default:
-        ipv4_address: 172.20.0.160
+        ipv4_address: 172.20.0.162
     # 生产开启这个
     command: bash -c "bash /usr/src/ini.sh "
 #    command: bash -c "/usr/local/bin/node /app/dist/www --conf='/app/app.yaml'"
