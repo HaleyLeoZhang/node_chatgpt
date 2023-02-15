@@ -24,7 +24,7 @@ down:
 
 cnet:
 	@# 创建网卡
-	@docker network create --subnet=172.44.2.0/24 network_open_ai
+	@docker network create --subnet=172.20.0.160/28 network_open_ai
 
 ini:
 	@clear

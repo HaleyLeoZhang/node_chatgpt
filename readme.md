@@ -56,7 +56,7 @@ Listening node HTTP server Port on  4040
 
 ##### 入参
 
-`zh` 是想翻译的中文文本  
+`zh` 是想翻译的中文文本，如果是双引号，请转为引号方便解码，对小说也没啥影响  
 `option` 枚举值  `en` 英文 `arabic` 阿拉伯语  
 
 ```
