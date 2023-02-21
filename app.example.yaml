@@ -14,7 +14,7 @@ ai:
 # 日志配置
 log:
   debug: false # true 输出日志到控制台; false 不输出日志到控制台
-  path: '/tmp/node_chatgpt' # 日志存放位置：不填,则不写日志文件 ; 填写，如 /tmp/node_chatgpt, 则自动写入到 /tmp 目录下 以 node_chatgpt 开头的文件
+  path: '/tmp/node_chatgpt/log' # 日志存放位置：不填,则不写日志文件 ; 填写，如 /tmp/node_chatgpt, 则自动写入到 /tmp 目录下 以 node_chatgpt 开头的文件
 
 # Sentry 异常采集  更多请访问 https://sentry.io/
 sentry_dsn: '' # 异常上报地址
