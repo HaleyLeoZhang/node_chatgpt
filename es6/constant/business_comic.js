@@ -5,6 +5,8 @@
 // GITHUB: https://github.com/HaleyLeoZhang
 // ----------------------------------------------------------------------
 
+import ConversationCache from "../caches/ConversationCache";
+
 const CONST_BUSINESS_COMIC = {
     // 事件
     "EVENT_SUBSCRIBE": "sub", // 拉取订阅
@@ -19,6 +21,10 @@ const CONST_BUSINESS_COMIC = {
     "MQ_CONSUMER_BLOCK_SECOND": 3,
     // 超时时间
     "HTTP_FETCH_TIMEOUT": 3 * 1000, // 3秒
+
+    // ------- 业务常量
+    "CHAT_CONVERSATION_CACHE_TTL": 10 * 60, // 会话缓存时长
+    "CHAT_CONVERSATION_CACHE_PREFIX": "node_chat", // 会话缓存前缀
 }
 
 export default CONST_BUSINESS_COMIC

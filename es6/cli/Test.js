@@ -7,7 +7,7 @@
 
 import Comic,{FIELD_IS_COMPLETE} from '../models/Data/ComicData.js'
 import Page from '../models/Data/Page.js'
-import PageCache from '../caches/PageCache.js'
+import ConversationCache from '../caches/ConversationCache.js'
 
 const CHANNEL_MHN = 2; // 漫画牛
 
@@ -53,13 +53,13 @@ class Test{
         let cache_key = 12;
         let cache_data = 2333;
         console.log('设置缓存') 
-        await PageCache.set_data(cache_key, cache_data);
-        let res = await PageCache.get_data(cache_key);
+        await ConversationCache.set_data(cache_key, cache_data);
+        let res = await ConversationCache.get_data(cache_key);
         console.log(res) 
         // 删除缓存
         console.log('删除缓存') 
-        await PageCache.delete_data(cache_key, cache_data);
-        let res_1 = await PageCache.get_data(cache_key);
+        await ConversationCache.delete_data(cache_key, cache_data);
+        let res_1 = await ConversationCache.get_data(cache_key);
         console.log(res_1) 
         
     }

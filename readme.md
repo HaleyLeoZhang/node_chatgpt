@@ -79,12 +79,14 @@ curl --location --request POST '127.0.0.1:3995/translate/zh?client_name=mlf' \
 ##### 入参
 
 `text` 是想文的内容
+`uniq_id` 如果想存储上下文信息，这里可以填个字符串，比如 [uuid](https://1024tools.com/uuid) 之类的，每次对话会缓存10分钟  
 
 ```
 curl --location --request POST '127.0.0.1:3995/translate/general?client_name=mlf' \
 --header 'Content-Type: application/json' \
 --data-raw '{
-    "text":"你知道未来中国哪个行业赚钱吗"
+    "text":"你知道未来中国哪个行业赚钱吗",
+    "uniq_id":"6e68df81-60bd-4623-868f-aee9fc10c553",
 }'
 ```
 
