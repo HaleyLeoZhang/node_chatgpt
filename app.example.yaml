@@ -45,3 +45,9 @@ rabbit_mq: # 通用中间件
   password: ''
   vhost: '/'
 
+# Redis 配置
+redis: # 模块专属 中间件
+  host: '127.0.0.1'
+  port: 6379
+  password: ''
+  db: 0 # 默认都走0号库，不要切库
