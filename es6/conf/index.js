@@ -58,10 +58,10 @@ export default class Conf {
             write: doc.db_comic.write,
         }
         REDIS_COMIC = {
-            host: doc.db_comic.host,
-            port: doc.db_comic.port,
-            password: doc.db_comic.password,
-            db: doc.db_comic.db,
+            host: doc.redis.host,
+            port: doc.redis.port,
+            password: doc.redis.password,
+            db: doc.redis.db,
         }
     }
 

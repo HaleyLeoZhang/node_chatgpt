@@ -9,6 +9,7 @@
 // GITHUB: https://github.com/HaleyLeoZhang
 // ----------------------------------------------------------------------
 import redis from 'redis'
+import {REDIS_COMIC} from "../../conf";
 
 
 class Helper {
@@ -98,7 +99,7 @@ export default class BaseCache {
                 data_str = JSON.stringify(data)
                 break;
         }
-
+        // console.debug("real_key", real_key)
         let res = false
         if (is_lock) {
             res = await Helper.set_data_sync(redis_client, real_key, data_str, 'EX', ttl, 'NX')

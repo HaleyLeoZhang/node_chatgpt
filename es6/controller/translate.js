@@ -58,7 +58,8 @@ export default class Translate extends Base {
             if (text_input.length === 0) {
                 throw new Error("入参 zh 不能为空")
             }
-            let res_text = await TranslateLogic.general(ctx, text_input)
+            let uniq_id = General.get_data_with_default(http_ctx.request.body.uniq_id, "")
+            let res_text = await TranslateLogic.general(ctx, text_input, uniq_id)
             response.data = {
                 "text": res_text,
             }

@@ -14,7 +14,20 @@ export default class DebugTaskTest extends BaseTask {
             console.log(text_zh)
             console.warn("翻译后")
             console.log(text_en)
-        }catch (e){
+        } catch (e) {
+            console.error(e)
+        }
+    }
+
+    // 测试 chatGPT 翻译功能是否通畅
+    static async general_with_cache() {
+        try {
+            let ctx = ContextTool.initial() // 每次拉取都是一个新的上下文
+            let text = "你叫什么名字"
+            let uniq_id = "b95fe19e-d4fc-4b72-8867-90df620d7f4c"
+            let res = await ChatgptService.general_with_cache(ctx, text, uniq_id)
+            console.log(res)
+        } catch (e) {
             console.error(e)
         }
     }
