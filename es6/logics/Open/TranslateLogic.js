@@ -27,7 +27,8 @@ export default class TranslateLogic extends Base {
      * 正常回应，可以记录上下文
      * @return string text 机器人回复
      */
-    static async general(ctx, text, uniq_id) {
-        return await ChatgptService.general_with_cache(ctx, text, uniq_id)
+    static async general(ctx, text, uniq_id, engine) {
+        let resText = await ChatgptService.general_with_cache(ctx, text, uniq_id, engine)
+        return resText
     }
 }

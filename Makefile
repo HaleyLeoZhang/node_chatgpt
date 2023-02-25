@@ -16,7 +16,7 @@ debug:
 	@node ./dist/app debug_task general_with_cache --conf="./app.yaml"
 #
 # babel-node 说明文档 https://babeljs.io/docs/en/babel-node
-#	@./node_modules/.bin/babel-node ./es6/app.js  debug_task translate --conf="./app.yaml"
+#	@./node_modules/.bin/babel-node ./es6/app.js  debug_task general_with_cache --conf="./app.yaml"
 
 
 # 调试www服务

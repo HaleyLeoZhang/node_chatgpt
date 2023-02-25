@@ -59,7 +59,8 @@ export default class Translate extends Base {
                 throw new Error("入参 zh 不能为空")
             }
             let uniq_id = General.get_data_with_default(http_ctx.request.body.uniq_id, "")
-            let res_text = await TranslateLogic.general(ctx, text_input, uniq_id)
+            let engine = General.get_data_with_default(http_ctx.request.body.engine, "") // 可选 bing 或者不填【默认chatGPT】
+            let res_text = await TranslateLogic.general(ctx, text_input, uniq_id, engine)
             response.data = {
                 "text": res_text,
             }
