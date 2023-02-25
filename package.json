@@ -9,6 +9,7 @@
     "@sentry/node": "^6.0.3",
     "@sentry/tracing": "^6.0.3",
     "@vercel/ncc": "^0.28.6",
+    "@waylaidwanderer/chatgpt-api": "^1.20.9",
     "amqplib": "^0.6.0",
     "babel-loader": "^8.0.6",
     "babelify": "^10.0.0",

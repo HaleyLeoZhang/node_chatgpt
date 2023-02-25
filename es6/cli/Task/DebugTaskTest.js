@@ -23,13 +23,22 @@ export default class DebugTaskTest extends BaseTask {
     static async general_with_cache() {
         try {
             let ctx = ContextTool.initial() // 每次拉取都是一个新的上下文
-            let text = "你叫什么名字"
-            let uniq_id = "b95fe19e-d4fc-4b72-8867-90df620d7f4c"
+            let text = `围绕"新能源车"这个主题，帮我想几个利于SEO且相关性较强的关键词`
+            let uniq_id = "asdadjiwe132221"
             let res = await ChatgptService.general_with_cache(ctx, text, uniq_id)
             console.log(res)
         } catch (e) {
             console.error(e)
         }
     }
+    static async general_option_test() {
+        try {
+            let res = await ChatgptService.general_option_test()
+            console.log(res)
+        } catch (e) {
+            console.error(e)
+        }
+    }
+
 
 }
