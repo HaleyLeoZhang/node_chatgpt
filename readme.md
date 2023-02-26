@@ -55,14 +55,7 @@ Listening node HTTP server Port on  4040
 
 ### 翻译接口
 
-```
-curl --location --request POST 'http://www.hlzblog.top/translate/zh?client_name=mlf' \
---header 'Content-Type: application/json' \
---data-raw '{
-    "zh":"沐临风是男主",
-    "option": "arabic"
-}'
-```
+
 
 ##### 入参
 
@@ -71,6 +64,14 @@ curl --location --request POST 'http://www.hlzblog.top/translate/zh?client_name=
 | zh |string | 中文待翻译内容 |是 | 如果是双引号，请转为引号方便解码，对小说也没啥影响   |
 | option | string | 用户提问唯一ID |是 | 枚举值: `en` 英文, `arabic` 阿拉伯语  |
 
+```bash
+curl --location --request POST 'http://www.hlzblog.top/translate/zh?client_name=mlf' \
+--header 'Content-Type: application/json' \
+--data-raw '{
+    "zh":"沐临风是男主",
+    "option": "arabic"
+}'
+```
 
 ##### 出参
 
@@ -86,16 +87,6 @@ curl --location --request POST 'http://www.hlzblog.top/translate/zh?client_name=
 ### 常规一问一答接口
 
 
-```
-curl --location --request POST 'http://www.hlzblog.top/translate/general?client_name=mlf' \
---header 'Content-Type: application/json' \
---data-raw '{
-    "text":"围绕'\''新能源车'\''这个主题，帮我想几个利于SEO且相关性较强的关键词",
-    "uniq_id":f958187b-3266-4562-9155-22932c3e894d",
-    "engine":""
-}'
-```
-
 
 ##### 入参
 
@@ -104,6 +95,17 @@ curl --location --request POST 'http://www.hlzblog.top/translate/general?client_
 | text |string | 发问内容 |是 | -  |
 | uniq_id | string | 用户提问唯一ID |是 | 如果想对话有上下文信息，这里可以填个字符串，如 [uuid](https://1024tools.com/uuid) 之类的，每次提问会延长缓存10分钟  |
 | engine | string | 引擎类型 |是 | 枚举值: 不填:openAI, bing:微软---账号功能审核中暂时不可用 |
+
+
+```bash
+curl --location --request POST 'http://www.hlzblog.top/translate/general?client_name=mlf' \
+--header 'Content-Type: application/json' \
+--data-raw '{
+    "text":"围绕'\''新能源车'\''这个主题，帮我想几个利于SEO且相关性较强的关键词",
+    "uniq_id":f958187b-3266-4562-9155-22932c3e894d",
+    "engine":""
+}'
+```
 
 ##### 出参
 
@@ -115,3 +117,14 @@ curl --location --request POST 'http://www.hlzblog.top/translate/general?client_
 |┠ text |string | 回答内容 |是 | -  |
 |┠ conversation_id |string | 上下文会话ID |是 | 如果第一次和第二次请求，该值没发生变化，则表明，两次请求处于同一个会话  |
 
+
+~~~json
+{
+    "code": 0,
+    "msg": "success",
+    "data": {
+        "text": "很高兴继续与您交谈！我最近学到的一件事是，2023年2月有一个重要的日子——“国际社会日”，这一天旨在向全球提醒我们应该如何在当今复杂的世界中建立关系。",
+        "conversation_id": "09133551-c33e-4938-a7a8-6f7cc8c2a96a"
+    }
+}
+~~~
