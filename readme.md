@@ -123,7 +123,8 @@ curl --location --request POST 'http://www.hlzblog.top/translate/general?client_
   "code": 0,
   "msg": "success",
   "data": {
-    "text": "1. 新能源车优惠 2. 新能源车减排 3. 新能源技术 4. 电动车续航 5. 电动车的未来 6. 电动车的安全性 7. 新能源车的发展 8. 新能源汽车使用成本 9. 新能源车的维修 10. 新能源车的耗能"
+    "text": "1. 新能源车优惠 2. 新能源车减排 3. 新能源技术 4. 电动车续航 5. 电动车的未来 6. 电动车的安全性 7. 新能源车的发展 8. 新能源汽车使用成本 9. 新能源车的维修 10. 新能源车的耗能",
+    "conversation_id": "846b30fc-2fb2-42a6-bc32-8ec010fcc705"
   }
 }
 ~~~
