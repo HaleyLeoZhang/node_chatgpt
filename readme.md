@@ -102,7 +102,7 @@ curl --location --request POST 'http://www.hlzblog.top/translate/general?client_
 --header 'Content-Type: application/json' \
 --data-raw '{
     "text":"围绕'\''新能源车'\''这个主题，帮我想几个利于SEO且相关性较强的关键词",
-    "uniq_id":f958187b-3266-4562-9155-22932c3e894d",
+    "uniq_id":"f958187b-3266-4562-9155-22932c3e894d",
     "engine":""
 }'
 ```
@@ -120,11 +120,10 @@ curl --location --request POST 'http://www.hlzblog.top/translate/general?client_
 
 ~~~json
 {
-    "code": 0,
-    "msg": "success",
-    "data": {
-        "text": "很高兴继续与您交谈！我最近学到的一件事是，2023年2月有一个重要的日子——“国际社会日”，这一天旨在向全球提醒我们应该如何在当今复杂的世界中建立关系。",
-        "conversation_id": "09133551-c33e-4938-a7a8-6f7cc8c2a96a"
-    }
+  "code": 0,
+  "msg": "success",
+  "data": {
+    "text": "1. 新能源车优惠 2. 新能源车减排 3. 新能源技术 4. 电动车续航 5. 电动车的未来 6. 电动车的安全性 7. 新能源车的发展 8. 新能源汽车使用成本 9. 新能源车的维修 10. 新能源车的耗能"
+  }
 }
 ~~~
