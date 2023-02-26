@@ -45,22 +45,18 @@ Listening node HTTP server Port on  4040
 则表明，服务已启动成功
 
 
-> 接口说明
+## 接口文档
 
-简略说明  
-`GET参数` 中 `client_name` 是必填的入参，随便填点内容都行    
+> 写在前面
 
-注：目前接口都是 `10秒` 超时  
+`GET参数` 中 `client_name` 是必填的入参，随便填点内容都行，主要是识别调用方    
+
+注：目前接口都是 `30秒` 超时  
 
 ### 翻译接口
 
-##### 入参
-
-`zh` 是想翻译的中文文本，如果是双引号，请转为引号方便解码，对小说也没啥影响  
-`option` 枚举值  `en` 英文 `arabic` 阿拉伯语  
-
 ```
-curl --location --request POST '127.0.0.1:3995/translate/zh?client_name=mlf' \
+curl --location --request POST 'http://www.hlzblog.top/translate/zh?client_name=mlf' \
 --header 'Content-Type: application/json' \
 --data-raw '{
     "zh":"沐临风是男主",
@@ -68,31 +64,54 @@ curl --location --request POST '127.0.0.1:3995/translate/zh?client_name=mlf' \
 }'
 ```
 
+##### 入参
+
+|字段名 | 字段类型 | 含义| 必选| 备注|
+|--- |--- |--- |--- |--- |
+| zh |string | 中文待翻译内容 |是 | 如果是双引号，请转为引号方便解码，对小说也没啥影响   |
+| option | string | 用户提问唯一ID |是 | 枚举值: `en` 英文, `arabic` 阿拉伯语  |
+
+
 ##### 出参
 
-`data.text` 就是翻译结果
+|字段名 | 字段类型 | 含义| 必选| 备注|
+|--- |--- |--- |--- |--- |
+|code |int |状态码 | 是 |0:成功，其他表示请求失败 |
+|msg |string |提示文案 |否 |请求失败时，返回错误描述|
+|data |object |信息 |否 |会吐出的情况：业务状态码表现为成功时 |
+|┠ text |string | 翻译结果 |是 | -  |
 
 
 
 ### 常规一问一答接口
 
-##### 入参
-
-`text` 是想文的内容
-`uniq_id` 如果想存储上下文信息，这里可以填个字符串，比如 [uuid](https://1024tools.com/uuid) 之类的，每次对话会缓存10分钟  
-`engine` 回复引擎，枚举值: 不填---默认chatGPT; bing---微软的，可以有上下文，但是可能受限制  
 
 ```
-curl --location --request POST '127.0.0.1:3995/translate/general?client_name=mlf' \
+curl --location --request POST 'http://www.hlzblog.top/translate/general?client_name=mlf' \
 --header 'Content-Type: application/json' \
 --data-raw '{
-    "text":"你知道未来中国哪个行业赚钱吗",
-    "uniq_id":"6e68df81-60bd-4623-868f-aee9fc10c553",
-    “engine":"bing"
+    "text":"围绕'\''新能源车'\''这个主题，帮我想几个利于SEO且相关性较强的关键词",
+    "uniq_id":f958187b-3266-4562-9155-22932c3e894d",
+    "engine":""
 }'
 ```
 
+
+##### 入参
+
+|字段名 | 字段类型 | 含义| 必选| 备注|
+|--- |--- |--- |--- |--- |
+| text |string | 发问内容 |是 | -  |
+| uniq_id | string | 用户提问唯一ID |是 | 如果想对话有上下文信息，这里可以填个字符串，如 [uuid](https://1024tools.com/uuid) 之类的，每次提问会延长缓存10分钟  |
+| engine | string | 引擎类型 |是 | 枚举值: 不填:openAI, bing:微软---账号功能审核中暂时不可用 |
+
 ##### 出参
 
-`data.text` 就是回答内容
+|字段名 | 字段类型 | 含义| 必选| 备注|
+|--- |--- |--- |--- |--- |
+|code |int |状态码 | 是 |0:成功，其他表示请求失败 |
+|msg |string |提示文案 |否 |请求失败时，返回错误描述|
+|data |object |信息 |否 |会吐出的情况：业务状态码表现为成功时 |
+|┠ text |string | 回答内容 |是 | -  |
+|┠ conversation_id |string | 上下文会话ID |是 | 如果第一次和第二次请求，该值没发生变化，则表明，两次请求处于同一个会话  |
 

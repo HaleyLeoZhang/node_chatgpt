@@ -70,26 +70,21 @@ export default class ChatgptService extends Base {
     }
 
     /**
-     * @return Promise
-     */
-    static async general(ctx, text) {
-        const chat_api = ChatgptService.new_api_object()
-        const res = await chat_api.sendMessage(text, {
-            timeoutMs: AI.timeout_second * 1000,
-        })
-        return res.text
-    }
-
+     * @return JSON
+     * */
     static async general_with_cache(ctx, text, uniq_id, engine) {
-        let resText = ''
+        let res = {
+            "text": "", // 回复文本内容
+            "conversation_id": "", // 会话ID
+        }
         switch (engine) {
             case "bing":
-                resText = await ChatgptService.general_with_cache_bing(ctx, text, uniq_id)
+                res = await ChatgptService.general_with_cache_bing(ctx, text, uniq_id)
                 break
             default:
-                resText = await ChatgptService.general_with_cache_openai(ctx, text, uniq_id)
+                res = await ChatgptService.general_with_cache_openai(ctx, text, uniq_id)
         }
-        return resText
+        return res
     }
 
     /**
@@ -106,7 +101,10 @@ export default class ChatgptService extends Base {
         // Case 1 不需要上下文信息
         if (uniq_id === "") {
             let res = await chat_api.sendMessage(text, option)
-            return res.text
+            return {
+                "text": res.text,
+                "conversation_id": res.conversationId,
+            }
         }
         // Case 2 需要上下文
 
@@ -129,7 +127,10 @@ export default class ChatgptService extends Base {
             id: res.id,
         }
         await ConversationCache.set_data(uniq_id, cache_data);
-        return res.text
+        return {
+            "text": res.text,
+            "conversation_id": res.conversationId,
+        }
     }
 
     /**
@@ -151,7 +152,10 @@ export default class ChatgptService extends Base {
             console.debug("------------uniq_id")
             let res = await chat_api.sendMessage(text, option)
             console.debug("------------不需要上下文信息")
-            return res.response
+            return {
+                "text": res.response,
+                "conversation_id": res.conversationId,
+            }
         }
         // Case 2 需要上下文
 
@@ -175,7 +179,10 @@ export default class ChatgptService extends Base {
             invocationId: res.invocationId,
         }
         await ConversationCache.set_data(uniq_id, cache_data);
-        return res.response
+        return {
+            "text": res.response,
+            "conversation_id": res.conversationId,
+        }
     }
 
     /**
