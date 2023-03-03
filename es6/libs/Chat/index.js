@@ -39,7 +39,7 @@ async function* streamAsyncIterable(stream) {
     reader.releaseLock();
   }
 }
-
+// http请求增加代理---前提配置了代理
 function getProxyOption(options) {
   if (undefined !== PROXY_DSN && PROXY_DSN.length > 0) {
     options["agent"] = new getProxyHttpAgent({ // https://stackoverflow.com/questions/60061143/using-rejectunauthorized-with-node-fetch-in-node-js
