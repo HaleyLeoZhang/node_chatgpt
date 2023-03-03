@@ -44,7 +44,7 @@ log_supervisor:
 	@docker exec -it node-chatgpt bash -c "tail -f /tmp/*.log -n 5"
 # 业务日志
 logs:
-	@docker exec -it node-chatgpt bash -c "tail -f /tmp/chatgpt/log* -n 5"
+	@docker exec -it node-chatgpt bash -c "tail -f /tmp/node_chatgpt/log* -n 5"
 
 clear:
 	@clear
