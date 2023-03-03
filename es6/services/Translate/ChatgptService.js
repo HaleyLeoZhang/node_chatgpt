@@ -1,9 +1,10 @@
 import Base from './Base'
 import Log from "../../tools/Log";
 import {BingAIClient} from '@waylaidwanderer/chatgpt-api';
-import {ChatGPTAPI, ChatGPTUnofficialProxyAPI} from 'chatgpt' // 文档 https://github.com/transitive-bullshit/chatgpt-api
+// import {ChatGPTAPI} from 'chatgpt' // 文档 https://github.com/transitive-bullshit/chatgpt-api
 import {AI} from "../../conf";
 import ConversationCache from "../../caches/ConversationCache";
+import {ChatGPTAPI} from "../../libs/Chat";
 
 export default class ChatgptService extends Base {
     // 初始化API对象
