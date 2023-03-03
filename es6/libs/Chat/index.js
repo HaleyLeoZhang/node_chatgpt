@@ -47,6 +47,7 @@ function getProxyOption(options) {
       rejectUnauthorized: false, // 忽略https证书异常，对于爬虫来说无所谓，如果是敏感业务需要谨慎使用该选项
     });
     options["redirect"] = 'follow'
+    console.log("代理中")
   }
   return options
 }
