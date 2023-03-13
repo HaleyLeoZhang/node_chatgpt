@@ -43,6 +43,7 @@ export default class Conf {
             open_ai_api_key: doc.ai.open_ai_api_key,
             timeout_second: doc.ai.timeout_second,
             debug: doc.ai.debug,
+            bing_cookie: doc.ai.bing_cookie,
         }
         HTTP_PORT = doc.http_port
         PROXY_DSN = doc.proxy_dsn

@@ -10,6 +10,8 @@ ai:
   open_ai_api_key: "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"
   timeout_second: 10 # 会话超时秒数
   debug: false # 是否调试会话，枚举值 true 调试  false 不调试
+  # 必应cookie 含登录信息    "_U" cookie from bing.com
+  bing_cookie: " SUID=A; _U=1uNochNieTF2uUlG0IM-MndSE8eUPsz-e76yKEEwGC0Qzr2aBFOvFIi_s-LCz0JX8JCOT6uFvDStZmLD-fZjF46yo5wIBHs5TWsRfOXPac8Lue8cD9Boma8sz56fYMrUn1cKGOrPTTzzOY-5evw1hWCpN-SqwwawrNdgxqCAfnaxT3fK520b1gquv3AX_UV3QT63Adfz4Y4yp62JdJ86TPmFhGPsMAjcxlPCcfmvFiMQ; SNRHOP=I=&TS=; _SS=SID=34BDD86D018E65BA3197CABF00E864E5&OCID=MY0291; SRCHHPGUSR=SRCHLANG=zh-Hans&PV=14.0.0; _HPVN=CS=eyJQbiI6eyJDbiI6MSwiU3QiOjAsIlFzIjowLCJQcm9kIjoiUCJ9LCJTYyI6eyJDbiI6MSwiU3QiOjAsIlFzIjowLCJQcm9kIjoiSCJ9LCJReiI6eyJDbiI6MSwiU3QiOjAsIlFzIjowLCJQcm9kIjoiVCJ9LCJBcCI6dHJ1ZSwiTXV0ZSI6dHJ1ZSwiTGFkIjoiMjAyMy0wMy0xM1QwMDowMDowMFoiLCJJb3RkIjowLCJHd2IiOjAsIkRmdCI6bnVsbCwiTXZzIjowLCJGbHQiOjAsIkltcCI6MX0="
 
 # 日志配置
 log:

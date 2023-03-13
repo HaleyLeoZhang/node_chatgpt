@@ -24,7 +24,7 @@ export default class ChatgptService extends Base {
             // 申请权限 https://www.xiaoheiwoo.com/how-to-apply-new-bing-and-free-to-use-chatgpt/
             // 要加入后补名单并审核通过后  翻墙访问 https://www.bing.com/new
             // 要用户登录的cookie TODO cookie 可能要放到 redis 里， 方便修改 --- 目前 cookie 过期时间不确定
-            const cookiesRaw = `_EDGE_V=1; MUID=133D590A73B7662A06334B3D72656787; MUIDB=133D590A73B7662A06334B3D72656787; USRLOC=HS=1; SRCHD=AF=ANAB01; SRCHUID=V=2&GUID=828024AF806B4FB290D4C62C41A7961F&dmnchg=1; MUIDV=NU=1; MMCASM=ID=710FEE1D631143DFBD7B4A402D524B04; ANIMIA=FRE=1; _tarLang=default=zh-Hans; _TTSS_IN=hist=WyJlbiIsImF1dG8tZGV0ZWN0Il0=; _TTSS_OUT=hist=WyJ6aC1IYW5zIl0=; ZHCHATSTRONGATTRACT=TRUE; ANON=A=7395C27F5C8C28B66130CA77FFFFFFFF&E=1c07&W=1; WLID=GVB06Wy9vB36aU99hqh07L96XgFtMTSMAGHMm/xMq3ifOsxMGxrwJgghz8LVXQtWEaHSGv3DoSmrSKyfqdSyX9EQhJg55MVGY6GtE9Q03RQ=; SUID=A; ZHCHATWEAKATTRACT=TRUE; ZHLASTACTIVECHAT=0; ABDEF=V=13&ABDV=11&MRNB=1677349143678&MRB=0; _UR=QS=0&TQS=0; _clck=qb7smp|1|f9f|0; _clsk=2rpfo6|1677349841222|18|0|f.clarity.ms/collect; _EDGE_S=SID=0C5D9420074069200FED86E3066D6884; WLS=C=78c517683574e1ac&N=%e4%b8%b4%e9%a3%8e; _U=1dmHoFKR219VuVh87qGxFBAd7R5peFCd3cPLr0zQD7AVpQ_aEzUyg_bbbJ25vSv56PevdP0dJeaVnzqVF0yOWTiitS105TOH19rdBWg2asYdIu5Y61bh1SeXeo_LJ0eyYHYnCfY_ae0HSWSxbe9qSRouXATpGUv9yPvPEkh1dooPa-eIvcPIalN1ZfcO8C5BTpE-E0Un8X5Aa6KGxF7-mdQBoYRebFJRzrQx1mXPe93U; SRCHS=PC=EE24; MicrosoftApplicationsTelemetryDeviceId=b8def018-2378-4334-a53d-417c876684ba; _HPVN=CS=eyJQbiI6eyJDbiI6MSwiU3QiOjAsIlFzIjowLCJQcm9kIjoiUCJ9LCJTYyI6eyJDbiI6MSwiU3QiOjAsIlFzIjowLCJQcm9kIjoiSCJ9LCJReiI6eyJDbiI6MSwiU3QiOjAsIlFzIjowLCJQcm9kIjoiVCJ9LCJBcCI6dHJ1ZSwiTXV0ZSI6dHJ1ZSwiTGFkIjoiMjAyMy0wMi0yNVQwMDowMDowMFoiLCJJb3RkIjowLCJHd2IiOjAsIkRmdCI6bnVsbCwiTXZzIjowLCJGbHQiOjAsIkltcCI6Nn0=; SRCHUSR=DOB=20221008&T=1677386044000&POEX=W; ipv6=hit=1677389646801&t=4; _RwBf=ilt=300&ihpd=2&ispd=15&rc=12&rb=12&gb=0&rg=0&pc=12&mtu=0&rbb=0.0&g=0&cid=&clo=0&v=46&l=2023-02-25T08:00:00.0000000Z&lft=0001-01-01T00:00:00.0000000&aof=0&o=0&p=bingcopilotwaitlist&c=MY00IA&t=7412&s=2023-02-25T18:22:06.6959696+00:00&ts=2023-02-26T04:34:24.0799609+00:00&rwred=0&wls=1&lka=0&lkt=0&TH=&W=1&mta=0&e=lR2sJ7NGKCX-9p0WmitHvrYqa4QUJ4Ngv5lG7YVUeDJFZ7veMFpMrDjFnrA4csu5yc6nngKsa9zJuZLraZsc9Q&A=; _SS=SID=0C5D9420074069200FED86E3066D6884&PC=EE24&R=12&RB=12&GB=0&RG=0&RP=12; SRCHHPGUSR=BRW=W&BRH=T&CW=1352&CH=1042&SCW=1402&SCH=1844&DPR=1.3&UTC=480&DM=0&SRCHLANG=zh-Hans&PV=10.0.0&PRVCW=1352&PRVCH=1042&EXLTT=31&HV=1677386064&WTS=63812941179&BZA=0&VCW=2031&VCH=1042&PR=1.25`
+            const cookiesRaw = ""
 
             this.bing_ai = new BingAIClient({
                 // Necessary for some people in different countries, e.g. China (https://cn.bing.com)
@@ -32,7 +32,7 @@ export default class ChatgptService extends Base {
                 // "_U" cookie from bing.com
                 userToken: '',
                 // If the above doesn't work, provide all your cookies as a string instead
-                cookies: cookiesRaw,
+                cookies: AI.bing_cookie,
                 // A proxy string like "http://<ip>:<port>"
                 // proxy: 'http://127.0.0.1:7890',
                 // (Optional) Set to true to enable `console.debug()` logging
