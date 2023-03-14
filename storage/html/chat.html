@@ -228,6 +228,9 @@
             });
         };
         Board.prototype.render_html = function (ai_or_user, text, timeString) {
+            // 处理 HTML 页面展示问题
+            text = text.replaceAll("\n","<br>")
+            // 渲染
             if (ai_or_user === CHAT_USER_AI) {
                 return `
                 <div class="row chat_box">
