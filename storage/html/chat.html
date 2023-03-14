@@ -347,7 +347,7 @@
         Board.prototype.ini = function () {
             var _this = this
             $("#send").on("click", function (e) {
-                var raw_text = $("#raw_data").val()
+                var raw_text = $("#raw_data").val().trim()
                 if (raw_text === "") {
                     layer.msg("请输入文字！")
                     return
@@ -355,7 +355,7 @@
                 _this.loading(SWITCH_ON)
                 _this.send_message(raw_text)
             })
-
+            // 初始化页面
             $("#core").append(
                 _this.render_html(CHAT_USER_AI, "你好，我是ChatGPT，很高兴和你聊天", _this.format_time(_this.time_tpl))
             )
