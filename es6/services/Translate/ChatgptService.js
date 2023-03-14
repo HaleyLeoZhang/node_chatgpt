@@ -191,7 +191,7 @@ export default class ChatgptService extends Base {
      */
     static async general_option_test() {
         const chat_api = ChatgptService.new_bin_api_object()
-        let response = await chat_api.sendMessage('Write a short poem about cats', {
+        let response = await chat_api.sendMessage('我现在在上海，告诉我一下明天是几号，明天天气怎么样，是否适合出游', {
             onProgress: (token) => {
                 process.stdout.write(token);
             },
