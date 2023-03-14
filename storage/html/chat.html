@@ -22,9 +22,10 @@
     <script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
     <script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <style>
-        html{
+        html {
             margin: 15px;
         }
+
         .chat_box {
             margin-top: 10px;
         }
@@ -119,34 +120,34 @@
             <div class="col-lg-12 col-md-12 col-sm-1 col-xs-12 " id="core">
 
                 <!-- GPT部分 -->
-<!--                <div class="row chat_box">-->
-<!--                    <div class="col-lg-1 col-md-1 col-sm-2 col-xs-2  icon_left">-->
-<!--                        <img class="head_pic_left" src="http://img.cdn.hlzblog.top/17-6-25/39571626.jpg" alt="头像"-->
-<!--                             title="ChatGPT">-->
-<!--                    </div>-->
-<!--                    <div class="col-lg-9 col-md-9 col-sm-9 col-xs-8">-->
-<!--                        <div class="arrow_box_ai">-->
-<!--                            <div class="text_info">-->
-<!--                                你好，我是ChatGPT，很高兴和你聊天-->
-<!--                            </div>-->
-<!--                            <ul class="details">-->
-<!--                                <li class="icon-time" title="昵称">-->
-<!--                                    发言人: ChatGPT-->
-<!--                                </li>-->
-<!--                                <li class="comments" title="留言时间">-->
-<!--                                    <i class="fa fa-clock-o"></i> 2021-02-25 23:18:29-->
-<!--                                </li>-->
-<!--                                <li style="list-style: none; display: inline">-->
-<!--                                    <div class="clr"></div>-->
-<!--                                </li>-->
-<!--                            </ul>-->
-<!--                        </div>-->
-<!--                    </div>-->
+                <!--                <div class="row chat_box">-->
+                <!--                    <div class="col-lg-1 col-md-1 col-sm-2 col-xs-2  icon_left">-->
+                <!--                        <img class="head_pic_left" src="http://img.cdn.hlzblog.top/17-6-25/39571626.jpg" alt="头像"-->
+                <!--                             title="ChatGPT">-->
+                <!--                    </div>-->
+                <!--                    <div class="col-lg-9 col-md-9 col-sm-9 col-xs-8">-->
+                <!--                        <div class="arrow_box_ai">-->
+                <!--                            <div class="text_info">-->
+                <!--                                你好，我是ChatGPT，很高兴和你聊天-->
+                <!--                            </div>-->
+                <!--                            <ul class="details">-->
+                <!--                                <li class="icon-time" title="昵称">-->
+                <!--                                    发言人: ChatGPT-->
+                <!--                                </li>-->
+                <!--                                <li class="comments" title="留言时间">-->
+                <!--                                    <i class="fa fa-clock-o"></i> 2021-02-25 23:18:29-->
+                <!--                                </li>-->
+                <!--                                <li style="list-style: none; display: inline">-->
+                <!--                                    <div class="clr"></div>-->
+                <!--                                </li>-->
+                <!--                            </ul>-->
+                <!--                        </div>-->
+                <!--                    </div>-->
 
-<!--                    <div class="col-lg-2 col-md-2 col-sm-1 col-xs-1">-->
-<!--                        <div alt="占位-&#45;&#45;不显示"></div>-->
-<!--                    </div>-->
-<!--                </div>-->
+                <!--                    <div class="col-lg-2 col-md-2 col-sm-1 col-xs-1">-->
+                <!--                        <div alt="占位-&#45;&#45;不显示"></div>-->
+                <!--                    </div>-->
+                <!--                </div>-->
 
             </div>
             <!-- 搜索按钮 -->
@@ -218,6 +219,8 @@
                         $("#core").append(
                             _this.render_html(CHAT_USER_AI, res.data.text, _this.format_time(_this.time_tpl))
                         )
+                        // 自动滑动到底部
+                        window.scrollTo(0,document.body.scrollHeight)
                     } else {
                         layer.msg(res.msg)
                     }
@@ -229,7 +232,7 @@
         };
         Board.prototype.render_html = function (ai_or_user, text, timeString) {
             // 处理 HTML 页面展示问题
-            text = text.replaceAll("\n","<br>")
+            text = text.replaceAll("\n", "<br>")
             // 渲染
             if (ai_or_user === CHAT_USER_AI) {
                 return `
@@ -340,10 +343,10 @@
         Board.prototype.loading = function (switch_status) {
             if (switch_status === SWITCH_ON) {
                 $("#raw_data").val("")
-                $("#raw_data").attr("placeholder","正在等待 ChatGPT 回复，请稍等...")
+                $("#raw_data").attr("placeholder", "正在等待 ChatGPT 回复，请稍等...")
                 $("#raw_data").attr("disabled", "true")
             } else {
-                $("#raw_data").attr("placeholder","这里输入内容")
+                $("#raw_data").attr("placeholder", "这里输入内容")
                 $("#raw_data").removeAttr("disabled")
             }
         }
