@@ -54,7 +54,7 @@ export default class Translate extends Base {
         let {response, ctx} = Base.response_default_with_ctx()
         try {
             Base.require_client_name(http_ctx)
-            if (!TranslateLogic.check_auth(http_ctx.request.query.client_name, http_ctx.request.query.token)) {
+            if (!TranslateLogic.check_auth(ctx, http_ctx.request.query.client_name, http_ctx.request.query.token)) {
                 throw new Error("client_name 或 token 不正确")
             }
             let text_input = General.get_data_with_default(http_ctx.request.body.text, "")

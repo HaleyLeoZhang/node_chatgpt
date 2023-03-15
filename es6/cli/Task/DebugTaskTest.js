@@ -3,6 +3,7 @@ import ContextTool from "../../tools/ContextTool";
 import GoDaService from "../../services/Translate/GoDaService";
 import ChatgptService from "../../services/Translate/ChatgptService";
 import Log from "../../tools/Log";
+import TranslateLogic from "../../logics/Open/TranslateLogic";
 
 export default class DebugTaskTest extends BaseTask {
     // 测试 chatGPT 翻译功能是否通畅
@@ -38,8 +39,10 @@ export default class DebugTaskTest extends BaseTask {
 
     static async general_option_test() {
         try {
-            let res = await ChatgptService.general_option_test()
-            console.log(res)
+            let ctx = ContextTool.initial() // 每次拉取都是一个新的上下文
+            console.log(TranslateLogic.check_auth(ctx, "yaochi", ""))
+            // let res = await ChatgptService.general_option_test()
+            // console.log(res)
         } catch (e) {
             console.error(e)
         }

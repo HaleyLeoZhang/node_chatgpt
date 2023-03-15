@@ -34,6 +34,9 @@ export default class Base {
      * @return string JSON 机器人回复
      */
     static check_auth(ctx, client_name, token) {
+        // console.log(client_name)
+        // console.log(AUTH)
+        // console.log(AUTH[client_name])
         if (AUTH[client_name] === token) {
             return true
         }
