@@ -18,9 +18,6 @@
     <meta name="copyright" content="云天河Blog">
     <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
 
-    <!-- ICON Compoents -->
-    <script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
-    <script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <style>
         html {
             margin: 15px;
@@ -174,7 +171,12 @@
 </div>
 
 </body>
-<script src="http://cdn.staticfile.org/layer/2.3/layer.js"></script>
+
+
+<script src="http://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
+<script src="http://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<!--<script src="http://cdn.staticfile.org/layer/2.3/layer.js"></script>-->
+<script src="http://cdn.staticfile.org/layer/3.5.1/mobile/layer.min.js"></script>
 <script>
 
 
@@ -193,6 +195,24 @@
             this.loading_index = 0;
             this.uuid = "" // 会话ID
             this.time_tpl = "h:i:s"
+            this.message_buffer = "" // 等待响应的内容
+        }
+
+        // layer 移动端使用文档 https://jeesite.gitee.io/front/layer/3.0/layer.layui.com/mobile/index.htm
+        Board.prototype.layer_alert = function (text) {
+            //信息框
+            layer.open({
+                content: text,
+                btn: '我知道了'
+            })
+        }
+        Board.prototype.layer_msg = function (text) {
+            //信息框
+            layer.open({
+                content: text,
+                skin: 'msg',
+                time: 2 //2秒后自动关闭
+            });
         }
 
         Board.prototype.send_message = function (text) {
@@ -200,6 +220,7 @@
             if (_this.uuid === "") {
                 _this.uuid = _this.get_uuid()
             }
+            _this.message_buffer = text
             $("#core").append(
                 _this.render_html(CHAT_USER_HUMAN, text, _this.format_time("h:i:s"))
             )
@@ -219,17 +240,28 @@
                         $("#core").append(
                             _this.render_html(CHAT_USER_AI, res.data.text, _this.format_time(_this.time_tpl))
                         )
+                        // 清空 buffer
+                        _this.message_buffer = ""
                         // 自动滑动到底部
-                        window.scrollTo(0,document.body.scrollHeight)
+                        window.scrollTo(0, document.body.scrollHeight)
                     } else {
-                        layer.msg(res.msg)
+                        _this.message_recovery()
+                        console.warn("API返回", res.msg)
                     }
                 },
                 "error": function () {
                     _this.loading(SWITCH_OFF)
+                    _this.message_recovery()
                 }
             });
         };
+        Board.prototype.message_recovery = function () {
+            var _this = this
+            $(".arrow_box_reply").last().parent().parent().remove()
+            $("#raw_data").val(_this.message_buffer)
+            _this.message_buffer = ""
+            _this.layer_alert("当前服务繁忙，请重试!")
+        }
         Board.prototype.render_html = function (ai_or_user, text, timeString) {
             // 处理 HTML 页面展示问题
             text = text.replaceAll("\n", "<br>")
@@ -355,7 +387,7 @@
             $("#send").on("click", function (e) {
                 var raw_text = $("#raw_data").val().trim()
                 if (raw_text === "") {
-                    layer.msg("请输入文字！")
+                    _this.layer_msg("请输入文字！")
                     return
                 }
                 _this.loading(SWITCH_ON)
