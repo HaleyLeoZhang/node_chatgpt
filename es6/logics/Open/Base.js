@@ -7,6 +7,9 @@
 
 import TimeTool from "../../tools/TimeTool";
 import General from "../../tools/General";
+import ChatgptService from "../../services/Translate/ChatgptService";
+import Log from "../../tools/Log";
+import {AUTH} from "../../conf";
 
 export default class Base {
     // 多个字段，中间以 , 隔开
@@ -24,5 +27,16 @@ export default class Base {
             }
         }
         return list
+    }
+
+    /**
+     * 正常回应，可以记录上下文
+     * @return string JSON 机器人回复
+     */
+    static check_auth(ctx, client_name, token) {
+        if (AUTH[client_name] === token) {
+            return true
+        }
+        return false
     }
 }

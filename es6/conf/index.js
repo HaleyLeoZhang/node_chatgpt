@@ -24,6 +24,7 @@ let BROWSER = {}, // 浏览器配置
     PROXY_DSN = "", // 代理服务器配置
     RABBIT_MQ = {}, // RabbitMQ 配置
     DB_COMIC = {}, // Mysql数据库配置
+    AUTH = {}, // OpenAPI 权限校验
     REDIS_COMIC = { // 缓存配置
         // host: '192.168.56.110',
         // port: 6379,
@@ -64,6 +65,12 @@ export default class Conf {
             password: doc.redis.password,
             db: doc.redis.db,
         }
+        // 权限
+        for (let i = 0, len = doc.auth.length; i < len; i++) {
+            let one = doc.auth[i]
+            AUTH[one.client_name] = one.token
+        }
+        AUTH = doc.auth
     }
 
     // 读取配置
@@ -96,4 +103,5 @@ export {
     RABBIT_MQ,
     DB_COMIC,
     REDIS_COMIC,
+    AUTH,
 };
