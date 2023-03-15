@@ -2,6 +2,7 @@ import BaseTask from "../../libs/Base/BaseTask";
 import ContextTool from "../../tools/ContextTool";
 import GoDaService from "../../services/Translate/GoDaService";
 import ChatgptService from "../../services/Translate/ChatgptService";
+import Log from "../../tools/Log";
 
 export default class DebugTaskTest extends BaseTask {
     // 测试 chatGPT 翻译功能是否通畅
@@ -25,13 +26,16 @@ export default class DebugTaskTest extends BaseTask {
             let ctx = ContextTool.initial() // 每次拉取都是一个新的上下文
             let text = `围绕"你应该知道的图数据库"这个主题，帮我想几个利于SEO且相关性较强的关键词`
             let uniq_id = "asdadjiwe1322212-01"
-            let engine = "" // bing 或者 不填
+            let engine = "bing" // bing 或者 不填
+            Log.ctxInfo(ctx, "开始")
             let res = await ChatgptService.general_with_cache(ctx, text, uniq_id, engine)
             console.log(res)
+            Log.ctxInfo(ctx, "结束")
         } catch (e) {
             console.error(e)
         }
     }
+
     static async general_option_test() {
         try {
             let res = await ChatgptService.general_option_test()
