@@ -29,8 +29,8 @@ export default class TranslateLogic extends Base {
      */
     static async general(ctx, text, uniq_id, engine) {
         let res = await ChatgptService.general_with_cache(ctx, text, uniq_id, engine)
-        Log.ctxInfo(ctx,`Question ${text}`)
-        Log.ctxInfo(ctx,`Answer ${res}`)
+        Log.ctxInfo(ctx,`uniq_id ${uniq_id}  Question ${text}`)
+        Log.ctxInfo(ctx,`uniq_id ${uniq_id}  Answer   ${res.text}`)
         return res
     }
 }
