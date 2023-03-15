@@ -70,7 +70,6 @@ export default class Conf {
             let one = doc.auth[i]
             AUTH[one.client_name] = one.token
         }
-        AUTH = doc.auth
     }
 
     // 读取配置
