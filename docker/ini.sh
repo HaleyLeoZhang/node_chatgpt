@@ -3,11 +3,13 @@
 #export TERM=xterm \
 #&& apt-get update \
 #&& apt-get install supervisor -y  \
-cd /app \
+#cd /app \
 #&& make install_prod \
 #&& make build \
-&& /usr/local/bin/node /app/dist/www --conf="/app/app.yaml"
+#&& /usr/local/bin/node /app/dist/www --conf="/app/app.yaml"
 #&& /usr/bin/supervisord
+
+/usr/local/bin/node /app/dist/www --conf="/app/app.yaml"
 
 #for((;;))
 #do
