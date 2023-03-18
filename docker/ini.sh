@@ -4,8 +4,8 @@
 #&& apt-get update \
 #&& apt-get install supervisor -y  \
 cd /app \
-&& make install_prod \
-&& make build \
+#&& make install_prod \
+#&& make build \
 && /usr/local/bin/node ./dist/www --conf="./app.yaml"
 #&& /usr/bin/supervisord
 
