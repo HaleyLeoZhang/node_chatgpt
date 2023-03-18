@@ -6,7 +6,7 @@
 cd /app \
 #&& make install_prod \
 #&& make build \
-&& /usr/local/bin/node ./dist/www --conf="./app.yaml"
+&& /usr/local/bin/node /app/dist/www --conf="/app/app.yaml"
 #&& /usr/bin/supervisord
 
 #for((;;))
