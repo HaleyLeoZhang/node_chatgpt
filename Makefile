@@ -57,3 +57,12 @@ build:
 	#@node ./node_modules/@vercel/ncc/dist/ncc/cli.js build ./es6/task.js -m -o ./dist/task
 	@node ./node_modules/@vercel/ncc/dist/ncc/cli.js build ./es6/www.js -m -o ./dist/www
 	@echo "----------- Compile success"
+
+# 自动提交
+push:
+	@git add -A
+	@git commit -m "update"
+	@git push origin master
+
+pull:
+	@git fetch && git checkout origin/master
