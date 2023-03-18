@@ -2,6 +2,8 @@ default: debug
 
 # ------------------------------------  开发环境  ------------------------------------
 
+# 如果有node 18的兼容问题 执行
+#   $env:NODE_OPTIONS="--openssl-legacy-provider"
 www:
 	@clear
 	@node ./node_modules/@vercel/ncc/dist/ncc/cli.js build ./es6/www.js -m -o ./dist/www

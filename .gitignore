@@ -1,6 +1,5 @@
 **/node_modules
 **/es5
-**/package-lock.json
 **/*.log
 **/.idea
 **/.DS_Store
