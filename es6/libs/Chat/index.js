@@ -21,7 +21,7 @@ var openai;
 })(openai || (openai = {}));
 
 // src/fetch.ts
-var fetch = globalThis.fetch;
+const fetch = require('node-fetch'); // 文档 https://www.npmjs.com/package/node-fetch
 
 // src/fetch-sse.ts
 import {createParser} from "eventsource-parser";

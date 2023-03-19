@@ -13,9 +13,10 @@ www:
 debug:
 	@clear
 # 	@rm -rf ./dist/app
+# 	@./node_modules/.bin/babel-node.cmd ./es6/app.js  debug_task general_with_cache --conf="./app.yaml"
 	@node ./node_modules/@vercel/ncc/dist/ncc/cli.js build ./es6/app.js -m -o ./dist/app
 #	@node ./dist/app debug_task translate --conf="D:/own_files/codes/own/node_puppeteer_framework/app.yaml"
-	@node ./dist/app debug_task general_option_test --conf="./app.yaml"
+	@node ./dist/app debug_task general_with_cache --conf="./app.yaml"
 #
 # babel-node 说明文档 https://babeljs.io/docs/en/babel-node
 #	@./node_modules/.bin/babel-node ./es6/app.js  debug_task general_with_cache --conf="./app.yaml"

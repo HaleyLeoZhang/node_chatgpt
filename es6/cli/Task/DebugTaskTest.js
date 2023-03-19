@@ -26,8 +26,9 @@ export default class DebugTaskTest extends BaseTask {
         try {
             let ctx = ContextTool.initial() // 每次拉取都是一个新的上下文
             let text = `围绕"你应该知道的图数据库"这个主题，帮我想几个利于SEO且相关性较强的关键词`
-            let uniq_id = "asdadjiwe1322212-01"
-            let engine = "bing" // bing 或者 不填
+            // let uniq_id = "asdadjiwe1322212-01"
+            let uniq_id = ""
+            let engine = "" // bing 或者 不填
             Log.ctxInfo(ctx, "开始")
             let res = await ChatgptService.general_with_cache(ctx, text, uniq_id, engine)
             console.log(res)
